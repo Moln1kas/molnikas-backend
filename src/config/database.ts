@@ -3,11 +3,11 @@ import mongoose from 'mongoose'
 import logger from '../utils/logger'
 
 export default async () => {
-    try {
-        await mongoose.connect('mongodb://localhost:27017/molnikas');
+    await mongoose.connect(process.env.MONGO_URI!)
+    .then(() => {
         logger.log('database successfully connected')
-    } catch (error: any) {
+    })
+    .catch((error: any) => {
         logger.error(`database connection error: ${error.message}`);
-        process.exit(1);
-    }
+    });
 }
