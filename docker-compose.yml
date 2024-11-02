@@ -3,6 +3,9 @@ version: '3.8'
 services:
   mongo:
     image: mongo:4.4
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: password
     ports:
       - "27017:27017"
     volumes:
@@ -13,7 +16,7 @@ services:
     ports:
       - "80:80"
     environment:
-      - MONGO_URI=mongodb://mongo:27017/mydatabase
+      - MONGO_URI=mongodb://mongo:27017/molnikas
     depends_on:
       - mongo
 

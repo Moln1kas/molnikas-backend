@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import bcrypt from 'bcrypt'
+import bcrypt from 'bcrypt';
 
 import logger from "../utils/logger";
 import cleanip from "../utils/cleanip";
@@ -15,12 +15,11 @@ export default async (req: Request, res: Response) => {
         username: username,
         password: password,
         isAdmin: false
-    })
-    .save()
+    }).save()
     .then(() => {
-        logger.log(`${cleanip(req.socket.remoteAddress)} made a new account. Name: ${username}.`, 'ADMIN REGISTER')
+        logger.log(`${cleanip(req.socket.remoteAddress)} made a new account. Name: ${username}.`, 'ADMIN REGISTER');
     })
     .catch(() => {
-        logger.error(`${cleanip(req.socket.remoteAddress)} caused a registration error.`, 'ADMIN REGISTER')
+        logger.error(`${cleanip(req.socket.remoteAddress)} caused a registration error.`, 'ADMIN REGISTER');
     })
 }

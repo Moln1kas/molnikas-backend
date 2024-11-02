@@ -23,6 +23,6 @@ export default (req: Request, res: Response) => {
         res.status(200).json({ message: 'ok', token: token });
     })
     .catch((err) => {
-        logger.error(err, 'ADMIN LOGIN')
+        logger.error(err, 'ADMIN LOGIN');
     });
 }

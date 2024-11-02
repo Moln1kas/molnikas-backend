@@ -4,16 +4,16 @@ const userschema = new mongoose.Schema({
     username: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
     },
     password: {
         type: String,
-        required: true
+        required: true,
     },
     isAdmin: {
         type: Boolean,
-        require: true
+        require: true,
     }
-})
+});
 
 export default mongoose.model('User', userschema);
